@@ -1,0 +1,63 @@
+@import "../base";
+@import "../mixins";
+
+// Every page css file has different nth child - that is active element
+.menu-list {
+  li:nth-child(2) {
+    a {
+      color: black;
+    }
+  }
+}
+
+main {
+}
+
+.about-container {
+  max-width: 1300px;
+  margin: auto;
+  & > * {
+    margin: auto;
+  }
+}
+.about-title {
+}
+
+.about-img {
+  @include box(100%, 50%);
+  max-height: 50%;
+  border-radius: 5px;
+  overflow: hidden;
+  max-width: 500px;
+
+  img {
+    width: 100%;
+    object-fit: cover;
+    object-position: center center;
+    max-height: 100%;
+  }
+}
+
+.about-text {
+  max-width: 500px;
+  margin-top: 0;
+  p {
+    margin: calc(2 * #{$normal-dist});
+
+    font-size: calc(2.5 * #{$normal-dist});
+    color: $text-col-one;
+
+    // only for mobile version
+    text-align: justify;
+  }
+}
+
+@media (min-width: 800px) and (orientation: landscape) {
+  .about-container {
+    display: flex;
+    flex-direction: row;
+  }
+  .about-img {
+    width: 500px;
+  }
+}

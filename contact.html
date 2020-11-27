@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet"
+          href="./assets/css/main.css">
+    <link rel="stylesheet"
+          href="./assets/css/contact.css">
+
+    <link rel="icon"
+          href="./assets/img/icon.ico">
+    <title>GartenDeko</title>
+
+</head>
+
+<body>
+
+    <div id="body"
+         class="body">
+        <!-- Background shapes -->
+        <div id="bg-circle-box"
+             class="bg-circle-box">
+            <div id="bg-circle"
+                 class="bg-circle"></div>
+        </div>
+        <div id="bg-circle-box-1"
+             class="bg-circle-box-1">
+            <div id="bg-circle-1"
+                 class="bg-circle-1"></div>
+        </div>
+        <div id="bg-circle-box-2"
+             class="bg-circle-box-2">
+            <div id="bg-circle-2"
+                 class="bg-circle-2"></div>
+        </div>
+
+        <div id="bg-hammer-box-tr"
+             class="bg-hammer-box-tr">
+            <div id="bg-hammer-box"
+                 class="bg-hammer-box">
+                <img id="bg-hammer"
+                     src="./assets/img/hammer.svg"
+                     alt="Hammer">
+            </div>
+        </div>
+
+        <!-- Menu -->
+        <nav id="nav-menu">
+
+            <div class="nav-title">
+                <h3><b>Garten</b>Deko</h3>
+            </div>
+
+            <div class="menu-container">
+
+                <div class="menu-title">
+                    <h4>Navigation</h4>
+                </div>
+
+                <div class="menu-list-box">
+                    <ul class="menu-list">
+                        <li><a href="./index.html">Home</a></li>
+                        <li><a href="./about.html">Über Uns</a></li>
+                        <li><a href="./projects.html">Projekte</a></li>
+                        <li><a href="./services.html">Dienstleistungen</a></li>
+                        <li><a href="./testimonials.html">Referenzen</a></li>
+                        <li><a href="">Kontakt</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- main Content -->
+        <div id="content"
+             class="content">
+
+            <header>
+
+                <div class="burger-icon">
+                    <input id="burgerInput"
+                           type="checkbox"
+                           class="burger-click"
+                           onchange="onBurgerClick(event)">
+                    <div class="navico"></div>
+                </div>
+
+                <div class="title">
+                    <h1><b>Garten</b>Deko</h1>
+                </div>
+
+                <div class="logo">
+                    <img src="./assets/img/logo.svg"
+                         alt="Logo">
+                </div>
+            </header>
+
+            <main>
+
+                <div class="page-title title-sec">
+                    <h5>Kontakt</h5>
+                </div>
+
+                <!-- srediti kontakt info   font awesome instalirati-->
+                <div class="contact-info-container">
+
+                    <div class="info-item-box">
+                        <div class="icon-box info-icon">
+                            <div class="icon-svg-info call-svg"></div>
+                        </div>
+                        <div class="icon-description info-description-box">
+                            <p>Handy Nummer</p>
+                            <p><a href="tel:00491629438037">0162 943 8037</a></p>
+                        </div>
+                    </div>
+                    <div class="info-item-box">
+                        <div class="icon-box info-icon">
+                            <div class="icon-svg-info email-svg"></div>
+
+                        </div>
+                        <div class="icon-description info-description-box">
+                            <p>E-mail</p>
+                            <p>gartendeko.ivan@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="info-item-box">
+                        <div class="icon-box info-icon">
+                            <div class=" icon-svg-info location-svg"></div>
+
+                        </div>
+                        <div class="icon-description info-description-box">
+                            <p>Location</p>
+                            <p>Hanau, MKK</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- srediti form -->
+                <div class="send-email-container">
+                    <p class="email-container-title">Nachricht senden</p>
+                    <form action="https://formspree.io/f/mbjpaogg"
+                          method="POST">
+                        <div class="name-contact">
+                            <input id="name-contact"
+                                   type="text"
+                                   placeholder="Name, Vorname"
+                                   name="name">
+                            <label for="name-contact"></label>
+                        </div>
+                        <div class="email-contact">
+                            <input id="email-contact"
+                                   type="text"
+                                   placeholder="Email"
+                                   name="_replyto">
+                            <label for="email-contact"></label>
+                        </div>
+                        <div class="subject-contact">
+                            <input id="subject-contact"
+                                   type="text"
+                                   placeholder="Betreff"
+                                   name="subject">
+                            <label for="subject-contact"></label>
+                        </div>
+                        <div class="msg-contact">
+                            <textarea id="msg-contact"
+                                      placeholder="Nachrichtentext"
+                                      name="body"></textarea>
+                            <label for="msg-contact"></label>
+                        </div>
+                        <button class="submit-contact btn-msg"
+                                type="submit">Senden</button>
+                    </form>
+
+                </div>
+
+
+            </main>
+
+            <!-- Footer -->
+            <footer>
+                <div class="footer-link"><a target="_blank"
+                       href="https://www.facebook.com/gartendeko.gartenpflege">Facebook</a></div>
+                <div class="footer-link"><a href="./contact.html">Contact</a></div>
+                <div class="footer-link"><a href="./projects.html">Projects</a></div>
+                <div class="footer-link"><a target="_blank"
+                       href="http://www.cutunic-developer.com">@ 2020 Cutunic</a></div>
+            </footer>
+
+        </div>
+
+    </div>
+
+</body>
+<script type="text/javascript"
+        src="./assets/js/main.js"></script>
+
+</html>

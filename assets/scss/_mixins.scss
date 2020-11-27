@@ -1,0 +1,77 @@
+//>BOX
+@mixin box($width, $height: $width) {
+    width: $width;
+    height: $height;
+}
+//>POSITION
+@mixin position($position, $args) {
+    @each $o in top right bottom left {
+      $i: index($args, $o);
+      @if $i and $i + 1 <= length($args) and type-of(nth($args, $i + 1)) == number {
+        #{$o}: nth($args, $i + 1);
+      }
+    }
+    position: $position;
+}
+  
+  // Positioning helpers
+  @mixin absolute($args: '') {
+    @include position(absolute, $args);
+  }
+  
+  @mixin fixed($args: '') {
+    @include position(fixed, $args);
+  }
+  
+  @mixin relative($args: '') {
+    @include position(relative, $args);
+  }
+
+//>POSITION Absolute vertical or horizontal
+@mixin position-abs-xy($axis, $args) {
+    @include position(absolute, $args);
+
+    @if $axis == 'x' {
+        left: 50%;
+        transform: translateX(-50%);
+    } @else if $axis == 'y'{
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}
+//>FLEX
+@mixin flex($align: center, $justify: center) {
+    display: flex;
+    align-items: $align;
+    justify-content: $justify;
+}
+
+//> GRID
+@mixin grid($column: auto, $row: auto) {
+    display: grid;
+    grid-template-columns: $column;
+    grid-template-rows: $row;
+}
+
+//> TEXT CENTER
+@mixin text-center($height) {
+    text-align: center;
+    line-height: $height;
+    width: 100%;
+}
+
+//> ABSOLUTE CENTER
+@mixin abs-center ($horizontal: true, $vertical: true) {
+    position: absolute;
+    @if ($horizontal and $vertical) {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    } @else if ($horizontal) {
+      left: 50%;
+      transform: translate(-50%, 0);
+    } @else if ($vertical) {
+      top: 50%;
+      transform: translate(0, -50%);
+    }
+}

@@ -1,0 +1,190 @@
+@import "../base";
+@import "../mixins";
+
+// Every page css file has different nth child - that is active element
+.menu-list {
+  li:nth-child(6) {
+    a {
+      color: black;
+    }
+  }
+}
+
+.contact-info-container {
+  display: flex;
+  flex-direction: row;
+  //justify-content: space-between;
+  flex-wrap: wrap;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  margin: 0 auto;
+  margin-bottom: 50px;
+
+  * {
+    z-index: 600;
+  }
+}
+
+.send-email-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 1rem;
+  width: 100%;
+  margin: 0 auto;
+  * {
+    z-index: 600;
+  }
+  h3 {
+    margin-bottom: 1rem;
+  }
+  form {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    input,
+    textarea {
+      width: 100%;
+      border-radius: 10px;
+      padding: 15px;
+      font-family: Helvetica, sans-serif, Arial;
+      font-size: 1rem;
+      margin-top: 0.5rem;
+      border: 1px solid rgb(150, 150, 150);
+    }
+    input:focus,
+    textarea:focus {
+      border: none;
+      border-bottom: 1px solid $action-col-one;
+      //background-color: red;
+      outline: none;
+    }
+    input {
+      height: 50px;
+    }
+    textarea {
+      height: 300px;
+    }
+    .name-contact {
+      width: 100%;
+    }
+    .email-contact {
+      width: 100%;
+    }
+    .subject-contact {
+      width: 100%;
+    }
+    .msg-contact {
+      width: 100%;
+    }
+    .submit-contact {
+      margin: auto;
+
+      margin-top: 2rem;
+      @include box(100%, 50px);
+      border-radius: 10px;
+      border: none;
+      background-color: $action-col-two;
+    }
+  }
+}
+
+.email-container-title {
+  text-align: center;
+
+  font-size: calc(3 * #{$normal-dist});
+  color: $text-col-one;
+  margin-top: calc(3 * #{$normal-dist});
+}
+
+.info-item-box {
+  @include box(290px, 80px);
+  background-color: white;
+  border-radius: 10px;
+
+  @include flex;
+  flex-direction: row;
+  margin: 10px;
+}
+.info-icon {
+  @include box(60px);
+  border: 1px solid $action-col-one;
+  border-radius: 50%;
+
+  @include flex;
+
+  margin: 10px 10px auto 10px;
+  .call-svg {
+    background: url(/assets/img/call.svg) no-repeat center center;
+  }
+  .location-svg {
+    background: url(/assets/img/location.svg) no-repeat center center;
+  }
+  .email-svg {
+    background: url(/assets/img/email.svg) no-repeat center center;
+  }
+
+  .icon-svg-info {
+    background-size: contain;
+
+    color: $action-col-one;
+    @include box(30px);
+  }
+}
+.info-description-box {
+  height: min-content;
+  margin: 10px auto auto 10px;
+  p {
+    margin-bottom: 4px;
+  }
+
+  p:nth-child(1) {
+    font-weight: bold;
+  }
+  p:nth-child(2) {
+    color: var(--text-col-one);
+  }
+}
+
+@media (min-width: 750px) {
+  .contact-info-container {
+    width: 100%;
+  }
+  .send-email-container {
+    width: 60%;
+  }
+}
+
+@media (min-width: 1100px) {
+  .contact-info-container {
+    width: 100%;
+  }
+  .send-email-container {
+    width: 500px;
+  }
+}
+
+@media (max-width: 350px) {
+  .info-item-box {
+    @include box(220px, 180px);
+    flex-direction: column; //
+  }
+
+  .info-icon {
+    margin: auto;
+  }
+
+  .info-description-box {
+    margin: auto;
+    p {
+      text-align: center;
+    }
+    p:nth-child(1) {
+      margin-bottom: 1rem;
+    }
+  }
+}

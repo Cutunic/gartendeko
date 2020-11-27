@@ -1,0 +1,97 @@
+@import "../base";
+@import "../mixins";
+
+// Every page css file has different nth child - that is active element
+.menu-list {
+  li:nth-child(3) {
+    a {
+      color: black;
+    }
+  }
+}
+
+.projects-container {
+  @include flex;
+  gap: calc(6 * #{$normal-dist});
+
+  max-width: 1300px;
+  margin: auto;
+  flex-wrap: wrap;
+  * {
+    color: $text-col-three;
+  }
+}
+
+.project-box {
+  @include box(100%, min-content);
+  @include relative;
+
+  max-width: 500px;
+
+  min-height: 300px;
+
+  margin: auto;
+
+  background-color: $help-col-two;
+  border-radius: 2px;
+
+  .project-img {
+    @include box(100%);
+    @include relative;
+
+    max-width: 100%;
+    max-height: 100%;
+    img {
+      @include box(100%);
+      object-fit: cover;
+    }
+    .arrow-left,
+    .arrow-right {
+      @include box(20px, 100px);
+
+      transform: translateY(-50%);
+
+      background-color: $bg-col-two;
+      opacity: 0.3;
+
+      z-index: 500;
+      @include flex;
+      img {
+        @include box(auto, 30px);
+        margin: auto;
+        color: transparent;
+
+        z-index: 400;
+      }
+    }
+    .arrow-left {
+      @include absolute(left 0 top 50%);
+    }
+
+    .arrow-right {
+      @include absolute(right 0 top 50%);
+      img {
+        transform: rotate(180deg);
+      }
+    }
+  }
+  .project-title,
+  .project-desc {
+  }
+
+  .project-title {
+    padding: calc(4 * #{$normal-dist});
+    padding-bottom: 0;
+
+    h4 {
+      font-size: 1.5rem;
+    }
+  }
+
+  .project-desc {
+    padding: calc(4 * #{$normal-dist});
+    p {
+      line-height: 1.3rem;
+    }
+  }
+}

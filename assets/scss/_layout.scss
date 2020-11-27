@@ -1,0 +1,320 @@
+//starts home bg elements
+.bg-circle-box {
+  @include box(200px);
+  @include absolute(left 0px top 40%); // smjestiti u skladu textom
+
+  overflow: hidden;
+  .bg-circle {
+    @include box(200px);
+    border-radius: 50%;
+    background-color: $help-col-two;
+    opacity: 0.1;
+
+    transform: translateX(-40%);
+  }
+}
+.bg-circle-box-1 {
+  @include box(500px);
+  @include absolute(top 0px right 0); // smjestiti u skladu textom
+
+  overflow: hidden;
+  .bg-circle-1 {
+    @include box(500px);
+    border-radius: 50%;
+    background-color: $help-col-two;
+    opacity: 0.06;
+
+    transform: translate(50%, -50%);
+  }
+}
+.bg-circle-box-2 {
+  @include box(800px);
+  @include absolute(left 50% bottom 0); // smjestiti u skladu textom
+  transform: translateX(-50%);
+  overflow: hidden;
+  .bg-circle-2 {
+    @include box(800px);
+    border-radius: 50%;
+    background-color: $help-col-two;
+    opacity: 0.05;
+
+    transform: translateY(50%);
+  }
+}
+.bg-hammer-box-tr {
+  @include box(100px);
+  @include absolute(right 40px top 70%); // smjestiti u ravnini s btn
+}
+.bg-hammer-box {
+  @include box(100%);
+
+  img {
+    @include box(100%);
+
+    //background-color: $help-col-two;
+    transform: rotateX(180deg) rotate(230deg);
+    opacity: 0.1;
+  }
+}
+//ends home bg elements
+
+// starts Navigation
+nav {
+  @include box($menu-width, 100%);
+  @include absolute(left 0);
+
+  transform: translateX(-100%);
+
+  background-color: $bg-col-two;
+
+  padding: calc(4 * #{$normal-dist});
+
+  @include flex(center, top);
+  flex-direction: column;
+  & * {
+    text-decoration: none;
+    list-style: none;
+    color: $text-col-one;
+    text-align: center;
+    h3 {
+      font-weight: normal;
+      margin-bottom: calc(6 * #{$normal-dist});
+      font-size: 15px;
+    }
+
+    li,
+    h4 {
+      margin: calc(3 * #{$normal-dist}) 0px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+    h4 {
+      color: $action-col-one;
+      font-weight: bold;
+    }
+    a {
+      color: $text-col-two;
+    }
+  }
+}
+// ends Navigation
+
+// starts Content
+.content {
+  @include box(100vw, 100%);
+  overflow: hidden;
+  @include grid(
+    1fr,
+    min-content minmax(calc(100vh - (calc(15 * #{$normal-dist}))), 100%)
+      min-content
+  );
+}
+// ends Content
+
+// starts Header layout
+header {
+  @include box(100%, calc(10 * #{$normal-dist}));
+  @include flex(center, space-between);
+
+  padding: calc(4 * #{$normal-dist});
+  flex-direction: row;
+
+  background-color: rgba(0, 27, 8, 0.103);
+
+  h1 {
+    color: $action-col-one;
+    b {
+      color: $help-col-two;
+    }
+  }
+}
+
+// ends Header layout
+
+// starts Footer layout
+footer {
+  @include box(100%, calc(5 * #{$normal-dist}));
+
+  @include grid(repeat(3, 1fr), auto);
+
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.04);
+  .footer-link {
+    @include box(100%, 15px);
+    @include flex;
+    a {
+      font-size: 12px;
+    }
+    &:nth-child(4) {
+      grid-column: 1/4;
+      a {
+        font-size: 10px;
+      }
+    }
+  }
+}
+// ends Footer layout
+
+// starts Main layout
+main {
+  @include box(100%);
+
+  padding: calc(3 * #{$normal-dist});
+}
+// ends Main layout
+
+// starts burger
+.burger-icon {
+  @include box(30px);
+  @include relative;
+  .burger-click {
+    @include box(30px);
+    @include position(absolute, top 0px);
+
+    z-index: 600;
+
+    opacity: 0;
+
+    cursor: pointer;
+  }
+
+  .navico,
+  .navico::before,
+  .navico::after {
+    @include box(30px, 4px);
+    @include position(absolute, top 0px);
+
+    z-index: 500;
+    border-radius: 3px;
+
+    background: $help-col-two;
+
+    transition: transform 250ms ease-in-out, opacity 150ms ease-in-out;
+  }
+  .navico::before,
+  .navico::after {
+    content: "";
+  }
+  .navico {
+    top: 13px;
+  }
+  .navico::before {
+    top: -10px;
+  }
+  .navico::after {
+    top: 10px;
+  }
+
+  .burger-click:checked ~ .navico::after {
+    opacity: 0;
+  }
+  .burger-click:checked ~ .navico {
+    transform: rotate(225deg);
+  }
+  .burger-click:checked ~ .navico::before {
+    transform: translateY(10px) rotate(-270deg);
+  }
+}
+// ends burges
+
+// starts main title GartenDeko
+.title {
+  h1 {
+  }
+}
+// ends main title GartenDeko
+
+// starts logo
+.logo {
+  &,
+  & > img {
+    @include box(40px);
+    border-radius: 50%;
+    overflow: hidden;
+  }
+}
+// ends logo
+
+//starts button
+.btn {
+  @include box(120px, 40px);
+  border-radius: 5px;
+  background-color: $action-col-two;
+  border: none;
+
+  @include flex;
+
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+  p {
+    font-size: 12px;
+    font-weight: bold;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+  &:active {
+    box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.4);
+  }
+}
+//ends button
+
+.page-title {
+  * {
+    text-align: center;
+
+    font-size: calc(2.5 * #{$normal-dist});
+    color: $text-col-one;
+  }
+
+  margin-bottom: calc(4 * #{$normal-dist});
+}
+
+@media (max-width: 330px) {
+  main {
+    padding: calc(1 * #{$normal-dist});
+  }
+}
+
+@media (min-width: 750px) and (orientation: landscape) {
+  //starts home bg elements
+  .bg-circle-box {
+    @include box(200px);
+    @include absolute(left 0px top 40%); // smjestiti u skladu textom
+
+    overflow: hidden;
+    .bg-circle {
+      @include box(200px);
+      border-radius: 50%;
+      background-color: $help-col-two;
+      opacity: 0.1;
+
+      transform: translateX(-40%);
+    }
+  }
+  .bg-hammer-box-tr {
+    @include box(200px);
+    top: auto;
+    bottom: 50px;
+    right: 100px;
+  }
+  .bg-hammer-box {
+    @include box(100%);
+
+    img {
+      @include box(100%);
+
+      //background-color: $help-col-two;
+      transform: rotateX(180deg) rotate(230deg);
+      opacity: 0.1;
+    }
+  }
+  //ends home bg elements
+}
+
+@media (max-height: 800px) {
+  .bg-circle-box-2 {
+    display: none;
+  }
+}
